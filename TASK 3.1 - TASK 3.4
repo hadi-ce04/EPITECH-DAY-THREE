@@ -1,0 +1,22 @@
+#TASK 3.1
+name = input("What is your name? ")
+newname = name.capitalize()
+print("Hello", newname + "!")
+
+#TASK 3.2
+classs = input("Enter a number")
+print(type(classs))
+
+#TASK 3.3
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+total = num1 + num2
+print("the total is: ",total)
+
+#TASK 3.4
+st = input("Enter a string: ")
+print(st[0], end="")
+for i in range(len(st)):
+    if st[i] == " ":
+        print(st[i + 1], end="")
+print()
