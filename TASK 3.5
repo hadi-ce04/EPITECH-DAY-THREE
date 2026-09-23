@@ -1,0 +1,50 @@
+Write a program that counts the frequency of each letter from a given text and infers the language of this
+very text
+
+
+a = input("Enter a sentence: ")
+
+b = a.lower()
+
+char_counts = {}
+
+for char in b:
+    if char.isalpha():
+        if char in char_counts:
+            char_counts[char] += 1
+        else:
+            char_counts[char] = 1
+print("\nLetter Counts:")
+for letter, freq in char_counts.items():
+    print(f"{letter}: {freq}")
+english = ['e', 'a', 'i', 'n', 'o', 'r', 's', 't', 'l', 'd', 'u', 'm', 'c', 'p', 'h', 'g', 'b', 'f', 'y', 'w']
+french  = ['e', 'a', 'i', 'n', 'o', 'r', 's', 't', 'l', 'd', 'u', 'm', 'c', 'p', 'v', 'f', 'q', 'é', 'à', 'è', 'ù', 'â', 'ê', 'î', 'ô', 'û', 'ç']
+german  = ['e', 'a', 'i', 'n', 'o', 'r', 's', 't', 'l', 'd', 'u', 'm', 'c', 'h', 'g', 'k', 'b', 'f', 'z', 'w', 'ä', 'ö', 'ü', 'ß']
+
+english_score = 0
+french_score = 0
+german_score = 0
+
+for letter, freq in char_counts.items():
+    if letter in english:
+        english_score += freq
+    if letter in french:
+        french_score += freq
+    if letter in german:
+        german_score += freq
+
+# Compare scores and infer the language
+print("\nScores")
+print(f"English score: {english_score}")
+print(f"French score:  {french_score}")
+print(f"German score:  {german_score}")
+
+print("\nResult")
+if english_score > french_score and english_score > german_score:
+    print("Inferred Language: English")
+elif french_score > english_score and french_score > german_score:
+    print("Inferred Language: French")
+elif german_score > english_score and german_score > french_score:
+    print("Inferred Language: German")
+else:
+    print("Inferred Language: Uncertain ")
